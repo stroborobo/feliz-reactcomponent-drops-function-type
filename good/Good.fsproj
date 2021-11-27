@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Component.fs" />
+    <Compile Include="Caller.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="../plugin/bin/Debug/net5.0/Plugin.dll" />
+    <PackageReference Include="Fable.AST" Version="3.1.1" />
+    <PackageReference Update="FSharp.Core" Version="5.0.2" />
+  </ItemGroup>
+
+</Project>
