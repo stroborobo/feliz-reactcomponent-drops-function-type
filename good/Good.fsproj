@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Component.fs" />
-    <Compile Include="Caller.fs" />
+    <Compile Include="../shared/Component.fs" />
+    <Compile Include="../shared/Caller.fs" />
   </ItemGroup>
 
   <ItemGroup>

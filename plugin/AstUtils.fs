@@ -1,4 +1,4 @@
-module Plugin.AstUtils
+module Feliz.AstUtils
 
 open Fable
 open Fable.AST
@@ -20,10 +20,7 @@ let makeIdentTyped typ name: Fable.Ident =
 let makeIdent name = makeIdentTyped Fable.Any name
 
 let makeAnonRecordType (args: (string * Fable.Type) list) =
-    let fieldNames, genericArgs =
-        ((List.empty, List.empty), args)
-        ||> List.fold (fun (fieldNames, genericArgs) (name, typ) ->
-            name :: fieldNames, typ :: genericArgs)
+    let fieldNames, genericArgs = List.unzip args
     Fable.AnonymousRecordType (Array.ofList fieldNames, genericArgs)
 
 let makeUniqueIdent (name: string) =
@@ -103,10 +100,9 @@ let isAnonymousRecord (fableType: Fable.Type) =
     | _ -> false
 
 let isReactElement (fableType: Fable.Type) =
-    true
-    // match fableType with
-    // | Fable.Type.DeclaredType (entity, genericArgs) -> entity.FullName.EndsWith "ReactElement"
-    // | _ -> false
+    match fableType with
+    | Fable.Type.DeclaredType (entity, genericArgs) -> entity.FullName.EndsWith "ReactElement"
+    | _ -> false
 
 let recordHasField name (compiler: PluginHelper) (fableType: Fable.Type) =
     match fableType with

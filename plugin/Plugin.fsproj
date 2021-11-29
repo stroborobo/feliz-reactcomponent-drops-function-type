@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework> <!-- net5.0 because otherwise "Could not load file or assembly 'System.Runtime'.." -->
+    <TargetFramework>net5.0</TargetFramework> <!-- net5.0 because net6.0 "Could not load file or assembly 'System.Runtime'.." -->
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="AstUtils.fs" />
+    <Compile Include="FelizReactComponent.fs" />
     <Compile Include="MyReactComponent.fs" />
   </ItemGroup>
 
